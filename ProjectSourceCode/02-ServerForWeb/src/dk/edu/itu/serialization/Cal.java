@@ -6,10 +6,9 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "cal")
-public class Tasks {
+public class Cal {
 	  @XmlElementWrapper(name = "tasks")
-	  @XmlElement(name = "task")
-	 // @XmlElement(name = "description");
+	  @XmlElement(name = "task")	 
 	  public List<Task> tasks;
 	  
 
