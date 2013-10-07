@@ -20,6 +20,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.List;
 import java.util.ListIterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -128,32 +129,34 @@ public class SimpleTcpServer {
   	                // Deserialize university xml into java objects.
   	                Cal cal = (Cal) jaxbContext.createUnmarshaller().unmarshal(stream);
   	                
+  	                
   	                // Iterate through the collection of student object and print each student object in the form of Xml to console.
   	                ListIterator<Task> listIterator = cal.tasks.listIterator();            
-  	                System.out.println("Printing student objects serialized into Xml");            
+  	              //  System.out.println("Printing student objects serialized into Xml");            
   	                
-  	                while (listIterator.hasNext()) {
+  	             /*   while (listIterator.hasNext()) {
   	                    PrintTaskObject(listIterator.next());
   	                    
-  	                }
+  	                }*/
 
-  	            
+  	                	
   	                
-  	                // Serialize university object into xml.            
-  	                //StringWriter writer = new StringWriter();
   	                
-
+  	           
+  	                
+  	           
   	                // We can use the same context object, as it knows how to 
   	                //serialize or deserialize University class.
   	                jaxbContext.createMarshaller().marshal(cal, writer);
   	                
-  	                System.out.println("Printing serialized university Xml before saving into file!");
+  	                
+  	                //System.out.println("Printing serialized university Xml before saving into file!");
   	                
   	                // Print the serialized Xml to Console.
-  	                System.out.println(writer.toString());  	                
+  	                //System.out.println(writer.toString());  	                
   	        
   	                // Finally save the Xml back to the file.
-  	               SaveFile(writer.toString(), path);
+  	              // SaveFile(writer.toString(), path);
   	           
   	            } catch (JAXBException ex) {
   	                //Logger.getLogger(UniversitySerializer.class.getName()).log(Level.SEVERE, null, ex);
@@ -165,6 +168,12 @@ public class SimpleTcpServer {
   	            outputStream.writeUTF(writer.toString());  	         
   	            outputStream.flush();
   	            socket.close();
+  	          //trying to write a new task
+	              /* List<Task> taskList = null ;  	                
+	                Task task = new Task();
+	                task.id ="testing";
+	                taskList.add(task);  	                
+	                cal.setTask(taskList);*/
   	        } catch (IOException ex) {
   	            Logger.getLogger(SimpleTcpServer.class.getName()).log(Level.SEVERE, null, ex);
 

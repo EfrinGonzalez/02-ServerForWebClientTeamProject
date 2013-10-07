@@ -9,22 +9,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Task {
 
     @XmlAttribute
-    public String id;
-
+    public String id;     
     @XmlAttribute
-    public String name;
-    
+    public String name;    
     @XmlAttribute
-    public String date;
-    
+    public String date;    
     @XmlAttribute
-    public String status;
-    
+    public String status;    
     @XmlAttribute
-    public String required;
-    
+    public String required;    
  // If you dont specify any annotation, it will be serialized as XmlElement.
-
     public String description;
     public String attendants;
+    
+   
 }
