@@ -22,5 +22,4 @@ public class Task {
     public String description;
     public String attendants;
     
-   
 }
