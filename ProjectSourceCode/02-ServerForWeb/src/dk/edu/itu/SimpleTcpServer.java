@@ -1,6 +1,5 @@
 package dk.edu.itu;
-//import Server;
-import java.awt.print.Printable;
+
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -13,9 +12,6 @@ import java.io.StringWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ListIterator;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 
@@ -26,9 +22,18 @@ import dk.edu.itu.serialization.Task;
 public class SimpleTcpServer 
 {	
 	public static final int serverPort = 7896; 
-	public static final String path = "/Volumes/DATA/Users/rasmus/Documents/Programming/GitHub/Mobile and distributed systems/02-ServerForWebClientTeamProject_RK/src/resources/task-manager-xml.xml";
+	public static String path = "";
     public static void main(String args[]) throws IOException
     {    
+    	System.out.println();
+    	String root = System.getProperty("user.dir");
+    	String filepath = "";
+    	
+    	if(System.getProperty("os.name").toLowerCase().equals("mac os x")) filepath = "/src/resources/task-manager-xml.xml";
+    	else filepath = "\\src\\resources\\task-manager-xml.xml"; // in case of Windows: "\\path \\to\\yourfile.txt
+    	
+    	path = root+filepath;
+    	
     	new SimpleTcpServer().runServer();
     }
     
